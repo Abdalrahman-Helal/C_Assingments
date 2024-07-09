@@ -32,18 +32,6 @@ int main(void)
     
     printf("\nplease enter No. to Search: ");
     scanf("%d",&x);
-    
-      if(x==arr[f])
-        {
-            index = f;
-            break;
-        }
-        else if(x== arr[l])
-        {
-            index = l;
-            break;
-        }
-
     while(f<=l)
     {
       
