@@ -1,75 +1,48 @@
 #include <stdio.h>
+int func(int *ptr);
+int swap(int *ptr, int *ptr1);
+
 int main(void)
 {
-    int ID;
-    int num1,num2;
-    printf("Please Enter Operation ID");
-    scanf("%d",&ID);
-   switch(ID)
-   {
-    case 1:
-    printf("Please Enter 2 Operand");
-    scanf("%d %d",&num1,&num2);
-    printf("%d",num1+num2);
-    break;
-
-    case 2:
-    printf("Please Enter 2 Operand");
-    scanf("%d %d",&num1,&num2);
-    printf("%d",num1-num2);
-    break;
-
-    case 3:
-    printf("Please Enter 2 Operand");
-    scanf("%d %d",&num1,&num2);
-    printf("%d",num1*num2);
-    break;
-
-    case 4:
-    printf("Please Enter 2 Operand");
-    scanf("%d %d",&num1,&num2);
-    printf("%d",num1/num2);
-    break;
-
-    case 5:
-    printf("Please Enter 2 Operand");
-    scanf("%d %d",&num1,&num2);
-    printf("%d",num1&num2);
-    break;
-
-    case 6:
-    printf("Please Enter 2 Operand");
-    scanf("%d %d",&num1,&num2);
-    printf("%d",num1|num2);
-    break;
-
-    case 7:
-    printf("Please Enter 1 Operand");
-    scanf("%d",&num1);
-    printf("%d",~num1);
-    break;
-
-    case 8:
-    printf("Please Enter 2 Operand");
-    scanf("%d %d",&num1,&num2);
-    printf("%d",num1^num2);
-    break;
-    case 9:
-     printf("Please Enter 2 Operand");
-    scanf("%d %d",&num1,&num2);
-    printf("%d",num1%num2);
-    break;
-
-    case 10:
-    printf("Please Enter 1 Operand");
-    scanf("%d",&num1);
-    printf("%d",++num1);
-    break;
-
-    case 11:
-    printf("Please Enter 1 Operand");
-    scanf("%d",&num1);
-    printf("%d",--num1);
-    break;
-   }
+    int arr[5];
+    for (int i = 0; i < 5; i++)
+    {
+        printf("please enter No.%d ", i+1);
+        scanf("%d",&arr[i]);
+    }
+    func(arr);
 }
+
+int swap(int *ptr, int *ptr1) 
+{
+    int temp = *ptr1;
+    *ptr1=*ptr;
+    *ptr=temp;
+}
+
+int func(int *ptr)
+{
+    for (int i = 0; i <4 ; i++)
+    {
+        for (int j = 0; j < 5-i-1; j++)
+        {
+            if(ptr[j]>ptr[j+1])
+            {
+                // int temp= ptr[j+1];
+                // ptr[j+1]= ptr[j];
+                // ptr[j]=temp;
+                swap(&ptr[j],&ptr[j+1]);
+                
+            }
+        }
+    }
+
+    printf("the array after sorting \n");
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%d \t",ptr[i]);
+    }
+    
+    
+}
+
